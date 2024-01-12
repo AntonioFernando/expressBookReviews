@@ -1,0 +1,11 @@
+public_users.get('/isbn/:isbn', async function (req, res) {
+  const byIsbn = req.params.isbn;
+  try {
+      await new Promise((resolve) => {    
+      resolve(res.send(books[byIsbn]));
+      });
+      console.log("Promise for Task 10 resolved");
+  } catch (error) {
+      console.error("An error occurred:", error);
+  }
+});
