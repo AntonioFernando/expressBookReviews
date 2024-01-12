@@ -1,0 +1,14 @@
+public_users.get('/author/:author', async function (req, res) {
+  const byAuthor = req.params.author;
+  const booksArray = Object.values(books);
+
+  try {
+      await new Promise((resolve) => {
+      let filtered_author = booksArray.filter((books) => books.author === byAuthor); 
+      resolve(res.send(filtered_author));
+      });
+      console.log("Promise for Task 12 resolved");
+  } catch (error) {
+      console.error("An error occurred:", error); 
+  }
+});
