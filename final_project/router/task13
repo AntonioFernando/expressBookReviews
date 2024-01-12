@@ -1,0 +1,14 @@
+public_users.get('/title/:title', async function (req, res) {
+  const byTitle = req.params.title;
+  const booksArray = Object.values(books);
+
+  try {
+      await new Promise((resolve) => {
+      let filtered_title = booksArray.filter((books) => books.title === byTitle);
+      resolve(res.send(filtered_title));
+      });
+      console.log("Promise for Task 12 resolved");
+  } catch (error) {
+      console.log("An error occurred:", error);
+  }
+});
